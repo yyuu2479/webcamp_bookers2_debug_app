@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :ensure_correct_user, only: [:edit,:update]
+  before_action :ensure_correct_user, only: [:edit,:update,:destroy]
 
   def show
     @user = User.find(params[:id])
@@ -24,11 +24,11 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-  
-  
+
+
 
   private
-  
+
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
   end
